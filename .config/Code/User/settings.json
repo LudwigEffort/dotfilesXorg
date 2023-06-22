@@ -1,0 +1,133 @@
+{
+  //! General Settings & Theme
+
+  //? Browser
+
+  //? Window
+  "window.menuBarVisibility": "toggle",
+  "window.title": "${dirty}${appName}${separator}${rootName}",
+  "window.zoomLevel": 1,
+
+  //? Workbench
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.iconTheme": "gruvbox-material-icon-theme",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.tree.indent": 15,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.splitSizing": "distribute",
+
+  //? Editor
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 13,
+  "editor.minimap.enabled": false,
+  "editor.fontLigatures": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeLens": true,
+  "editor.lineNumbers": "relative",
+
+  //? Terminal
+  "terminal.integrated.fontFamily": "Hack Nerd Font",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.localEchoStyle": "dim",
+
+  //? Vim
+  "vim.useSystemClipboard": true,
+
+  //? Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  //? Debug
+  "debug.console.fontSize": 12,
+
+  //! Languages
+
+  //? C#
+  "[csharp]": {
+    "editor.codeLens": false,
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "csharpextensions.useFileScopedNamespace": true,
+  "roslynator.autoUpdateOmnisharpJson": true,
+
+  //? C++
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+
+  //? HTML
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  //? JavaScript
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  //? PHP
+  /*
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  */
+
+  //! Exstensions Settings
+
+  //? Code Runner
+  "code-runner.runInTerminal": true,
+
+  //? CodeSnap
+  "codesnap.showWindowControls": true,
+  "codesnap.showWindowTitle": true,
+  "codesnap.containerPadding": "2em",
+
+  //? Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "firefox-developer-edition",
+
+  //? SQLTools
+  "sqltools.connections": [
+    {
+      "mssqlOptions": {
+        "appName": "SQLTools",
+        "useUTC": true,
+        "encrypt": true
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 1433,
+      "driver": "MSSQL",
+      "name": "SQL Server Local",
+      "database": "PhotoDB",
+      "username": "sa",
+      "password": "@f5Y8d5pM#7"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "MySQL Local ",
+      "database": "db_deliveboo",
+      "username": "root",
+      "password": ""
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "PostgreSQL Local",
+      "database": "maindb",
+      "username": "root",
+      "password": "root"
+    }
+  ]
+}
