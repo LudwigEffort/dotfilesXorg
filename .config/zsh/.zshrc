@@ -62,7 +62,7 @@ alias ls='ls -xFX --color=auto'
 alias la='ls -axFX --color=auto'
 alias ll='ls -hlFX --color=auto'
 alias lla='ls -ahlFX --color=auto'
-alias lfa="lf-ueberzug"
+alias lf="lf-ueberzug"
 
 #alias mL7p='composer create-project --prefer-dist laravel/laravel:^7.0 .'
 #alias emacs="emacsclient -c -a 'emacs'"
