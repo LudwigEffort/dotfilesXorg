@@ -1,4 +1,5 @@
 #!/bin/sh
+# source code https://github.com/polybar/polybar-scripts
 
 if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
     updates_arch=0
@@ -17,13 +18,7 @@ updatesArch=$updates_arch
 updatesAur=$updates_aur
 
 if [ "$updatesArch" -gt 0 ]; then
-    echo " $updatesArch"
+    echo " $updatesArch  $updatesAur"
 else
-    echo " $updatesArch"
-fi
-
-if [ "$updatesAur" -gt 0 ]; then
-    echo " $updatesAur"
-else
-    echo " $updatesAur"
+    echo " $updatesArch  $updatesAur"
 fi
