@@ -1,4 +1,5 @@
 #!/bin/sh
+#https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/vpn-nordvpn-status
 
 STATUS=$(nordvpn status | grep Status | tr -d ' ' | cut -d ':' -f2)
 
