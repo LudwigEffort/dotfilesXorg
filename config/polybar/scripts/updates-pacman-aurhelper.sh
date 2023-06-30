@@ -1,5 +1,5 @@
 #!/bin/sh
-# source code https://github.com/polybar/polybar-scripts
+# source code https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/updates-pacman-aurhelper
 
 if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
     updates_arch=0
