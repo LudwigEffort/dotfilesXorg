@@ -1,7 +1,7 @@
 /*******************************************************************************
- * MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI
- * User                 : LR-Tech
- * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+ * Gruvbox Dark Theme v0.1
+ * User                 : LE
+ * Ispired by           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
 /* Set Colors */
@@ -51,12 +51,14 @@
 /* Window Style */
 
 window {
-    background-color:   @bg0s;
-
     location:           center;
     width:              1000;
     height:             800;
-    /*border-radius:  8;*/
+    border-radius:      8;
+    border:             5px;
+
+    background-color:   @bg0s;
+    border-color:       @bg4;
 }
 
 
@@ -75,7 +77,7 @@ inputbar {
 }
 
 prompt {
-  text-color:           @fg1;
+  text-color:           @aqua;
   font:                 "JetBrainsMono 20";
   vertical-align:       0.5;
 }
@@ -134,7 +136,6 @@ element selected {
     vertical-align:     0.5;
 }
 
-
 element-text selected {
-    text-color:         @bg0;
+    text-color:         @bg0h;
 }
