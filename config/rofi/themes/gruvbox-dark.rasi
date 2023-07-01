@@ -38,7 +38,7 @@
     orange:         #fe8019;
     dark-orange:    #d65d0e;
 
-    font:       "JetBrainsMono 16";
+    font:       "JetBrainsMono 18";
 
     background-color:   transparent;
     text-color:         @fg1;
@@ -56,7 +56,7 @@ window {
 
     location:       center;
     width:          1000;
-    height:         600;
+    height:         800;
     /*border-radius:  8;*/
 }
 
@@ -77,13 +77,13 @@ inputbar {
 
 prompt {
   text-color:       @bg0h;
-  font:       "JetBrainsMono 18";
+  font:       "JetBrainsMono 20";
   vertical-align: 0.5;
 }
 
 entry {
   text-color:       @bg0h;
-  font:       "JetBrainsMono 18";
+  font:       "JetBrainsMono 20";
   padding: 0 10px;
   vertical-align: 0.5;
 }
@@ -103,7 +103,7 @@ textbox {
 /* Listview Style */
 
 listview {
-    lines:      10;
+    lines:      8;
     columns:    1;
 
     fixed-height:   false;
@@ -112,17 +112,20 @@ listview {
 }
 
 element {
-    padding:            8px 16px;
-    spacing:            16px;
     background-color:   transparent;
+    padding:            20px 40px;
+    spacing:            8px;
 }
 
 element-icon {
-    size:   1em;
+    size:   1.5em;
+    vertical-align: 0.5;
 }
 
 element-text {
     text-color: inherit;
+    padding: 0 10px;
+    vertical-align: 0.5;
 }
 
 element normal active {
