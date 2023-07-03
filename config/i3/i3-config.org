@@ -1,0 +1,246 @@
+#+title: Ludwig's i3 Config
+#+author: Ludwig Effort
+#+description: Personal i3 Config
+#+property: header-args :tangle config
+
+* About This Config
+* i3 Cheat Sheet
+** General Keybindings
+| Keybindings                 | Description                               |
+|-----------------------------+-------------------------------------------|
+| MODKEY + Return             | opens terminal (alacritty)                |
+| MODKEY + SHIFT + q          | exit from app                             |
+| MODKEY + f                  | fullscreen toggle                         |
+| MODKEY + SHIFT + c          | restart i3                                |
+| MODKEY + SHIFT + g          | exit from i3                              |
+| MODKEY + hjkl               | move focus hjkl directions                |
+| MODKEY + ARROW KEYS         | move focus arrow directions               |
+| MODKEY + SHIFT + hjkl       | move window hjkl directions               |
+| MODKEY + SHIFT + ARROW KEYS | move window arrow directions              |
+| MODKEY + r                  | start resize mode with hjkl or arrow keys |
+| MODKEY + SHIFT + SPC        | floating toggle                           |
+| MODKEY + SPC                | focus normal/floating                     |
+| MODKEY + 1-0                | change workspace                          |
+| MODKEY + SHIFT + 1-0        | move window into specific workspace            |
+** App Keybindings
+| Keybindings | Description             |
+|-------------+-------------------------|
+| MODKEY + e  | opens doom emacs        |
+| MODKEY + c  | opens vsc               |
+| MODKEY + s  | take screenshot         |
+| MODKEY + d  | opens rofi applications |
+| MODKEY + o  | opens rofi emoji        |
+* Settings
+** Title
+#+begin_src conf :tangle ~/.config/i3/config
+################################################################################################################################
+##################################################    i3 config file (v4)    ###################################################
+################################################################################################################################
+
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#+end_src
+** Style
+*** Fonts
+#+begin_src conf :tangle ~/.config/i3/config
+font pango:JetBrains Mono 8
+#+end_src
+*** Gaps
+#+begin_src conf :tangle ~/.config/i3/config
+hide_edge_borders both
+for_window [class="^.*"] border pixel 1
+gaps inner 15
+gaps inner 15
+#+end_src
+** Window Settings
+*** General
+#+begin_src conf :tangle ~/.config/i3/config
+floating_minimum_size 1800 x 1500
+floating_maximum_size 1800 x 1500
+#+end_src
+*** Zoom Windows Rules
+#+begin_src conf :tangle ~/.config/i3/config
+for_window [instance="zoom"] move container to workspace $ws8, workspace $ws8, floating enable
+for_window [instance="join"] move container to workspace $ws8, workspace $ws8
+for_window [title="^Zoom Meeting$"] floating disable
+for_window [title="^Zoom - Free Account$"] floating disable, border pixel 1
+for_window [title="^Chat$"] floating enable
+for_window [title="^Settings$"] floating enable, resize set 500 px 500 px
+#+end_src
+*** Slack Windows Rules
+#+begin_src conf :tangle ~/.config/i3/config
+for_window [title="^Slack$"] move container to workspace $ws9, workspace $ws9
+#+end_src
+* Software
+** Software
+#+begin_src conf :tangle ~/.config/i3/config
+set $terminal alacritty
+set $emacs emacsclient -c -a 'emacs'
+set $code code
+#+end_src
+** Rofi
+#+begin_src conf :tangle ~/.config/i3/config
+set $menu rofi -show drun
+set $emoji rofi -show emoji
+#+end_src
+** Software to run automatically at startup
+#+begin_src conf :tangle ~/.config/i3/config
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id nm-applet
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
+exec_always --no-startup-id  autotiling -w 1 2 3 4 5 6 7 8 9 0
+
+exec_always --no-startup-id /usr/bin/emacs --daemon ## Start the emacs server
+exec_always --no-startup-id flameshot
+#+end_src
+* Keybindings
+** General Keybindings
+#+begin_src conf :tangle ~/.config/i3/config
+set $mod Mod4
+bindsym $mod+Shift+q kill
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+c restart
+bindsym $mod+Shift+g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#+end_src
+** Focus and Movement Keybindings
+*** Focus
+**** hjkl Keys
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+#+end_src
+**** Arrow Keys
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+#+end_src
+*** Movement
+**** hjkl Keys
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+#+end_src
+**** Arrow Keys
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+#+end_src
+*** Others
+### Other type focus
+## Focus the parent container
+#bindsym $mod+z focus parent
+
+## Focus the child container
+#bindsym $mod+x focus child
+
+### Splitting
+## Split in horizontal orientation
+#bindsym $mod+h split h
+
+## Split in vertical orientation
+#bindsym $mod+v split v
+
+### Change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+Shift+s layout toggle split
+*** Resize
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+r mode "resize"
+mode "resize" {
+     bindsym j resize shrink width 10 px or 10 ppt
+     bindsym k resize grow width 10 px or 10 ppt
+     bindsym l resize shrink height 10 px or 10 ppt
+     bindsym semicolon resize grow height 10 px or 10 ppt
+
+     bindsym Left resize shrink width 10 px
+     bindsym Right resize grow width 10 px
+     bindsym Down resize shrink height 10 px
+     bindsym Up resize grow height 10 px
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+     bindsym $mod+r mode "default"
+}
+#+end_src
+*** Floating
+#+begin_src conf :tangle ~/.config/i3/config
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+#+end_src
+** Workspaces Keybindings
+*** Name for default workspaces
+#+begin_src conf :tangle ~/.config/i3/config
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+#+end_src
+*** Switch to workspaces
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+#+end_src
+*** Move focused container to workspace
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+#+end_src
+** Software Keybindings
+*** Software
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+e exec --no-startup-id  $emacs
+bindsym $mod+c exec --no-startup-id $code
+bindsym $mod+S exec "flameshot gui"
+#+end_src
+*** Rofi Keybindings
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym $mod+d exec $menu
+bindsym $mod+o  exec $emoji
+#+end_src
+** Multimedia Keys
+*** Pulseaudio-control
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-control up --volume-step --volume-max --autosync @DEFAULT_SINK@ && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-control down --volume-step --autosync @DEFAULT_SINK@ && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pulseaudio-control togmute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#+end_src
+*** Player keys (playerctl)
+#+begin_src conf :tangle ~/.config/i3/config
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+#+end_src
