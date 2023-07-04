@@ -52,10 +52,9 @@
 
 window {
     location:           center;
-    width:              1000;
-    height:             800;
-    border-radius:      8;
-    border:             5px;
+    width:              25%;
+    border-radius:      10;
+    /*border:             5px;*/
 
     background-color:   @bg0s;
     border-color:       @bg4;
@@ -72,18 +71,18 @@ mainbox {
 
 inputbar {
   children:             [prompt, entry];
-  background-color:     @bg0h;
+  background-color:     @dark-blue;
   padding:              0.5em;
 }
 
 prompt {
-  text-color:           @aqua;
+  text-color:           @bg0;
   font:                 "JetBrainsMono 20";
   vertical-align:       0.5;
 }
 
 entry {
-  text-color:           @fg1;
+  text-color:           @bg0;
   font:                 "JetBrainsMono 18";
   padding:              0 10px;
   vertical-align:       0.5;
@@ -105,12 +104,10 @@ textbox {
 /* Listview Style */
 
 listview {
-    lines:              8;
+    lines:              10;
     columns:            1;
 
-    fixed-height:       false;
-    border:             0px 0 0;
-    border-color:       @bg1;
+    fixed-height:       true;
 }
 
 element {
@@ -131,11 +128,11 @@ element-text {
 }
 
 element selected {
-    background-color:   @fg2;
+    background-color:   @bg3;
     padding:            0 10px;
     vertical-align:     0.5;
 }
 
 element-text selected {
-    text-color:         @bg0h;
+    text-color:         @fg1;
 }

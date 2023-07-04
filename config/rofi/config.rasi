@@ -5,7 +5,7 @@ configuration {
   icon-theme: "Gruvbox Plus Dark";
   drun-display-format: "{name}";
   font: "JetBrainsMono Nerd Font Medium 10";
-  modi: "window,drun";
+  modi: "window,drun,emoji,calc";
 }
 
 @theme "~/.config/rofi/themes/gruvbox-dark.rasi"
