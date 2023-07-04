@@ -4,6 +4,7 @@
 #+property: header-args :tangle config
 
 * About This Config
+Please see https://i3wm.org/docs/userguide.html for a complete reference!
 * i3 Cheat Sheet
 ** General Keybindings
 | Keybindings                 | Description                               |
@@ -23,21 +24,26 @@
 | MODKEY + 1-0                | change workspace                          |
 | MODKEY + SHIFT + 1-0        | move window into specific workspace            |
 ** App Keybindings
-| Keybindings | Description             |
-|-------------+-------------------------|
-| MODKEY + e  | opens doom emacs        |
-| MODKEY + c  | opens vsc               |
-| MODKEY + s  | take screenshot         |
-| MODKEY + d  | opens rofi applications |
-| MODKEY + o  | opens rofi emoji        |
+| Keybindings        | Description                |
+|--------------------+----------------------------|
+| MODKEY + e         | opens doom emacs           |
+| MODKEY + v         | opens vsc                  |
+| MODKEY + s         | take screenshot            |
+| MODKEY + SHIFT + s | take fullscreen screenshot |
+| MODKEY + d         | opens rofi applications    |
+| MODKEY + p         | opens rofi power menu      |
+| MODKEY + n         | opens rofi network menu    |
+| MODKEY + b ?       | opens rofi bluetooth       |
+| MODKEY + c         | opens rofi calculator      |
+| MODKEY + o         | opens rofi emoji           |
+| MODKEY + y         | opens rofi clip menu       |
+| MODKEY + m (TODO)  | opens rofi mpc             |
 * Settings
 ** Title
 #+begin_src conf :tangle ~/.config/i3/config
 ################################################################################################################################
 ##################################################    i3 config file (v4)    ###################################################
 ################################################################################################################################
-
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #+end_src
 ** Style
 *** Fonts
@@ -73,20 +79,26 @@ for_window [title="^Slack$"] move container to workspace $ws9, workspace $ws9
 * Software
 ** Software
 #+begin_src conf :tangle ~/.config/i3/config
-set $terminal alacritty
-set $emacs emacsclient -c -a 'emacs'
-set $code code
+set $terminal   exec --no-startup-id alacritty
+set $emacs      exec --no-startup-id emacsclient -c -a 'emacs'
+set $code       exec --no-startup-id code
+set $fsGui      exec "flameshot gui"
+set $fsFull     exec "flameshot full -p ~/pictures/screenshots -d 5000"
 #+end_src
 ** Rofi
 #+begin_src conf :tangle ~/.config/i3/config
-set $menu rofi -show drun
-set $emoji rofi -show emoji
+set $menu       exec rofi -show drun
+set $emoji      exec rofi -show emoji
+set $power      exec rofi -show power-menu -modi power-menu:.config/rofi/scripts/rofi-power-menu
+set $calc       exec rofi -show calc -modi calc -no-show-match -no-sort
+set $clipboard  exec clipmenu
 #+end_src
 ** Software to run automatically at startup
 #+begin_src conf :tangle ~/.config/i3/config
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 exec_always --no-startup-id  autotiling -w 1 2 3 4 5 6 7 8 9 0
 
@@ -97,10 +109,10 @@ exec_always --no-startup-id flameshot
 ** General Keybindings
 #+begin_src conf :tangle ~/.config/i3/config
 set $mod Mod4
-bindsym $mod+Shift+q kill
-bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+c restart
-bindsym $mod+Shift+g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod + Shift+q kill
+bindsym $mod + f fullscreen toggle
+bindsym $mod + Shift + c restart
+bindsym $mod + Shift + g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #+end_src
 ** Focus and Movement Keybindings
 *** Focus
@@ -220,15 +232,19 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ** Software Keybindings
 *** Software
 #+begin_src conf :tangle ~/.config/i3/config
-bindsym $mod+Return exec --no-startup-id $terminal
-bindsym $mod+e exec --no-startup-id  $emacs
-bindsym $mod+c exec --no-startup-id $code
-bindsym $mod+S exec "flameshot gui"
+bindsym $mod + Return       $terminal
+bindsym $mod + e            $emacs
+bindsym $mod + v            $code
+bindsym $mod + s            $fsGui
+bindsym $mod + Shift + s    $fsFull
 #+end_src
 *** Rofi Keybindings
 #+begin_src conf :tangle ~/.config/i3/config
-bindsym $mod+d exec $menu
-bindsym $mod+o  exec $emoji
+bindsym $mod + d            $menu
+bindsym $mod + o            $emoji
+bindsym $mod + p            $power
+bindsym $mod + c            $calc
+bindsym $mod + y            $clipboard
 #+end_src
 ** Multimedia Keys
 *** Pulseaudio-control

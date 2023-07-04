@@ -2,8 +2,6 @@
 ##################################################    i3 config file (v4)    ###################################################
 ################################################################################################################################
 
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
 font pango:JetBrains Mono 8
 
 hide_edge_borders both
@@ -23,16 +21,22 @@ for_window [title="^Settings$"] floating enable, resize set 500 px 500 px
 
 for_window [title="^Slack$"] move container to workspace $ws9, workspace $ws9
 
-set $terminal alacritty
-set $emacs emacsclient -c -a 'emacs'
-set $code code
+set $terminal   exec --no-startup-id alacritty
+set $emacs      exec --no-startup-id emacsclient -c -a 'emacs'
+set $code       exec --no-startup-id code
+set $fsGui      exec "flameshot gui"
+set $fsFull     exec "flameshot full -p ~/pictures/screenshots -d 5000"
 
-set $menu rofi -show drun
-set $emoji rofi -show emoji
+set $menu       exec rofi -show drun
+set $emoji      exec rofi -show emoji
+set $power      exec rofi -show power-menu -modi power-menu:.config/rofi/scripts/rofi-power-menu
+set $calc       exec rofi -show calc -modi calc -no-show-match -no-sort
+set $clipboard  exec clipmenu
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 exec_always --no-startup-id  autotiling -w 1 2 3 4 5 6 7 8 9 0
 
@@ -40,10 +44,10 @@ exec_always --no-startup-id /usr/bin/emacs --daemon ## Start the emacs server
 exec_always --no-startup-id flameshot
 
 set $mod Mod4
-bindsym $mod+Shift+q kill
-bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+c restart
-bindsym $mod+Shift+g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod + Shift+q kill
+bindsym $mod + f fullscreen toggle
+bindsym $mod + Shift + c restart
+bindsym $mod + Shift + g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -119,13 +123,17 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-bindsym $mod+Return exec --no-startup-id $terminal
-bindsym $mod+e exec --no-startup-id  $emacs
-bindsym $mod+c exec --no-startup-id $code
-bindsym $mod+S exec "flameshot gui"
+bindsym $mod + Return       $terminal
+bindsym $mod + e            $emacs
+bindsym $mod + v            $code
+bindsym $mod + s            $fsGui
+bindsym $mod + Shift + s    $fsFull
 
-bindsym $mod+d exec $menu
-bindsym $mod+o  exec $emoji
+bindsym $mod + d            $menu
+bindsym $mod + o            $emoji
+bindsym $mod + p            $power
+bindsym $mod + c            $calc
+bindsym $mod + y            $clipboard
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-control up --volume-step --volume-max --autosync @DEFAULT_SINK@ && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-control down --volume-step --autosync @DEFAULT_SINK@ && $refresh_i3status
