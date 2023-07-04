@@ -71,7 +71,7 @@ mainbox {
 
 inputbar {
   children:             [prompt, entry];
-  background-color:     @dark-blue;
+  background-color:     @blue;
   padding:              0.5em;
 }
 
@@ -82,6 +82,8 @@ prompt {
 }
 
 entry {
+  /*placeholder:          "Search";
+  placeholder-color:    @bg0;*/
   text-color:           @bg0;
   font:                 "JetBrainsMono 18";
   padding:              0 10px;
@@ -107,7 +109,7 @@ listview {
     lines:              10;
     columns:            1;
 
-    fixed-height:       true;
+    fixed-height:       false;
 }
 
 element {
