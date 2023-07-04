@@ -26,12 +26,14 @@ set $emacs      exec --no-startup-id emacsclient -c -a 'emacs'
 set $code       exec --no-startup-id code
 set $fsGui      exec "flameshot gui"
 set $fsFull     exec "flameshot full -p ~/pictures/screenshots -d 5000"
+set $xkill      exec --no-startup-id "xkill"
 
 set $menu       exec rofi -show drun
 set $emoji      exec rofi -show emoji
-set $power      exec rofi -show power-menu -modi power-menu:.config/rofi/scripts/rofi-power-menu
 set $calc       exec rofi -show calc -modi calc -no-show-match -no-sort
 set $clipboard  exec clipmenu
+set $power      exec rofi -show power-menu -modi power-menu:.config/rofi/scripts/rofi-power-menu
+set $network    exec --no-startup-id ".config/rofi/scripts/rofi-wifi-menu.sh"
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
@@ -128,12 +130,14 @@ bindsym $mod + e            $emacs
 bindsym $mod + v            $code
 bindsym $mod + s            $fsGui
 bindsym $mod + Shift + s    $fsFull
+bindsym --release $mod + Shift + x    $xkill
 
 bindsym $mod + d            $menu
 bindsym $mod + o            $emoji
 bindsym $mod + p            $power
 bindsym $mod + c            $calc
 bindsym $mod + y            $clipboard
+bindsym $mod + n            $network
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-control up --volume-step --volume-max --autosync @DEFAULT_SINK@ && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-control down --volume-step --autosync @DEFAULT_SINK@ && $refresh_i3status

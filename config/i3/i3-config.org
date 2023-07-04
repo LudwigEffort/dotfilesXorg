@@ -84,14 +84,16 @@ set $emacs      exec --no-startup-id emacsclient -c -a 'emacs'
 set $code       exec --no-startup-id code
 set $fsGui      exec "flameshot gui"
 set $fsFull     exec "flameshot full -p ~/pictures/screenshots -d 5000"
+set $xkill      exec --no-startup-id "xkill"
 #+end_src
 ** Rofi
 #+begin_src conf :tangle ~/.config/i3/config
 set $menu       exec rofi -show drun
 set $emoji      exec rofi -show emoji
-set $power      exec rofi -show power-menu -modi power-menu:.config/rofi/scripts/rofi-power-menu
 set $calc       exec rofi -show calc -modi calc -no-show-match -no-sort
 set $clipboard  exec clipmenu
+set $power      exec rofi -show power-menu -modi power-menu:.config/rofi/scripts/rofi-power-menu
+set $network    exec --no-startup-id ".config/rofi/scripts/rofi-wifi-menu.sh"
 #+end_src
 ** Software to run automatically at startup
 #+begin_src conf :tangle ~/.config/i3/config
@@ -237,6 +239,7 @@ bindsym $mod + e            $emacs
 bindsym $mod + v            $code
 bindsym $mod + s            $fsGui
 bindsym $mod + Shift + s    $fsFull
+bindsym --release $mod + Shift + x    $xkill
 #+end_src
 *** Rofi Keybindings
 #+begin_src conf :tangle ~/.config/i3/config
@@ -245,6 +248,7 @@ bindsym $mod + o            $emoji
 bindsym $mod + p            $power
 bindsym $mod + c            $calc
 bindsym $mod + y            $clipboard
+bindsym $mod + n            $network
 #+end_src
 ** Multimedia Keys
 *** Pulseaudio-control
