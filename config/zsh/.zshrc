@@ -19,7 +19,7 @@ zstyle :compinstall filename '/home/ludwig/.zshrc'
 autoload -Uz compinit
 compinit
 
-### SSH
+### SSH (prevents the terminal from asking for the password at any time when ssh or git is used)
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   ssh-agent -t 4h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
@@ -63,6 +63,8 @@ alias la='ls -axFX --color=auto'
 alias ll='ls -hlFX --color=auto'
 alias lla='ls -ahlFX --color=auto'
 alias lf="lf-ueberzug"
+alias ips="ip -c addr"
+alias ns="nmcli -p connection"
 
 #alias mL7p='composer create-project --prefer-dist laravel/laravel:^7.0 .'
 #alias emacs="emacsclient -c -a 'emacs'"
