@@ -3,18 +3,8 @@
 
   //? Browser
 
-  //? Window
-  "window.menuBarVisibility": "toggle",
-  "window.title": "${dirty}${appName}${separator}${rootName}",
-  "window.zoomLevel": 1,
-
-  //? Workbench
-  "workbench.colorTheme": "Gruvbox Dark Hard",
-  "workbench.iconTheme": "gruvbox-material-icon-theme",
-  "workbench.productIconTheme": "fluent-icons",
-  "workbench.tree.indent": 15,
-  "workbench.editor.tabSizing": "shrink",
-  "workbench.editor.splitSizing": "distribute",
+  //? Debug
+  "debug.console.fontSize": 12,
 
   //? Editor
   "editor.fontFamily": "Fira Code",
@@ -28,6 +18,10 @@
   "editor.codeLens": true,
   "editor.lineNumbers": "relative",
 
+  //? Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
   //? Terminal
   "terminal.integrated.fontFamily": "Hack Nerd Font",
   "terminal.integrated.fontSize": 13,
@@ -36,12 +30,25 @@
   //? Vim
   "vim.useSystemClipboard": true,
 
-  //? Explorer
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
+  //? Window
+  "window.menuBarVisibility": "toggle",
+  "window.title": "${dirty}${appName}${separator}${rootName}",
+  "window.zoomLevel": 1,
 
-  //? Debug
-  "debug.console.fontSize": 12,
+  //? Workbench
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.iconTheme": "gruvbox-material-icon-theme",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.tree.indent": 15,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.splitSizing": "distribute",
+
+  //? Zenmode
+  "zenMode.hideActivityBar": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": false,
+  "zenMode.centerLayout": false,
 
   //! Languages
 
@@ -87,47 +94,5 @@
 
   //? Live Server
   "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.AdvanceCustomBrowserCmdLine": "firefox-developer-edition",
-
-  //? SQLTools
-  "sqltools.connections": [
-    {
-      "mssqlOptions": {
-        "appName": "SQLTools",
-        "useUTC": true,
-        "encrypt": true
-      },
-      "previewLimit": 50,
-      "server": "localhost",
-      "port": 1433,
-      "driver": "MSSQL",
-      "name": "SQL Server Local",
-      "database": "PhotoDB",
-      "username": "sa",
-      "password": "@f5Y8d5pM#7"
-    },
-    {
-      "mysqlOptions": {
-        "authProtocol": "default"
-      },
-      "previewLimit": 50,
-      "server": "localhost",
-      "port": 3306,
-      "driver": "MariaDB",
-      "name": "MySQL Local ",
-      "database": "db_deliveboo",
-      "username": "root",
-      "password": ""
-    },
-    {
-      "previewLimit": 50,
-      "server": "localhost",
-      "port": 5432,
-      "driver": "PostgreSQL",
-      "name": "PostgreSQL Local",
-      "database": "maindb",
-      "username": "root",
-      "password": "root"
-    }
-  ]
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "firefox-developer-edition"
 }

@@ -51,7 +51,7 @@
     "when": "commentEditorFocused"
   },
   {
-    "key": "ctrl+enter",
+    "key": "ctrl+shift+enter",
     "command": "workbench.action.terminal.new",
     "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
   },
@@ -166,7 +166,7 @@
     "when": "folderMatchFocus && replaceActive && searchViewletVisible"
   },
   {
-    "key": "ctrl+shift+enter",
+    "key": "ctrl+enter",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
