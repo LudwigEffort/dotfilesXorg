@@ -28,8 +28,8 @@ Please see https://i3wm.org/docs/userguide.html for a complete reference!
 |--------------------+----------------------------|
 | MODKEY + e         | opens doom emacs           |
 | MODKEY + v         | opens vsc                  |
-| MODKEY + s         | take screenshot            |
-| MODKEY + SHIFT + s | take fullscreen screenshot |
+| MODKEY + Shift + s | take screenshot            |
+| PRINT              | take fullscreen screenshot |
 | MODKEY + d         | opens rofi applications    |
 | MODKEY + p         | opens rofi power menu      |
 | MODKEY + n         | opens rofi network menu    |
@@ -119,6 +119,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
+exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id  autotiling -w 1 2 3 4 5 6 7 8 9 0
 
 exec_always --no-startup-id /usr/bin/emacs --daemon ## Start the emacs server
@@ -254,8 +255,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod + Return       $terminal
 bindsym $mod + e            $emacs
 bindsym $mod + v            $code
-bindsym $mod + s            $fsGui
-bindsym $mod + Shift + s    $fsFull
+bindsym $mod + Shift + s    $fsGui
+bindsym Print               $fsFull
 bindsym --release $mod + Shift + x    $xkill
 #+end_src
 *** Rofi Keybindings
