@@ -97,7 +97,7 @@ for_window [title="^Slack$"] move container to workspace $ws9, workspace $ws9
 ** Software
 #+begin_src conf :tangle ~/.config/i3/config
 set $terminal   exec --no-startup-id alacritty
-set $emacs      exec --no-startup-id emacsclient -c -a 'emacs'
+set $emacs      exec --no-startup-id emacsclient -nc
 set $code       exec --no-startup-id code
 set $fsGui      exec "flameshot gui"
 set $fsFull     exec "flameshot full -p ~/pictures/screenshots -d 5000"
@@ -122,7 +122,7 @@ exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id  autotiling -w 1 2 3 4 5 6 7 8 9 0
 
-exec_always --no-startup-id /usr/bin/emacs --daemon ## Start the emacs server
+exec_always --no-startup-id "emacs --daemon" ## Start the emacs server
 exec_always --no-startup-id flameshot
 #+end_src
 * Keybindings
