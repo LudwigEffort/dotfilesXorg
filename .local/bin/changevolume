@@ -6,7 +6,7 @@
 
 send_notification() {
 	volume=$(pulseaudio-control output)
-	dunstify -a "changevolume" -u low -r 9993 -h int:value:"$volume" -i "volume-$1" "Volume: ${volume}%" -t 2000
+	dunstify -a "changevolume" -u low -r 9993 -h int:value:"$volume" -i "/home/ludwig/.local/share/icons/fontawesome/volume-$1.svg" "Volume: ${volume}%" -t 2000
 }
 
 case $1 in
@@ -24,7 +24,7 @@ down)
 mute)
 	pulseaudio-control togmute
 	if eval "$(pamixer --get-mute)"; then #todo: change pamixer with pulseaudio-control
-		dunstify -a "changevolume" -t 2000 -r 9993 -u low -i "volume-mute" "Muted"
+		dunstify -a "changevolume" -t 2000 -r 9993 -u low -i "/home/ludwig/.local/share/icons/fontawesome/volume-mute.svg" "Muted"
 	else
 		send_notification up
 	fi
