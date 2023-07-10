@@ -271,9 +271,9 @@ bindsym $mod + n            $network
 ** Multimedia Keys
 *** Pulseaudio-control
 #+begin_src conf :tangle ~/.config/i3/config
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-control up --volume-step --volume-max --autosync @DEFAULT_SINK@ && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-control down --volume-step --autosync @DEFAULT_SINK@ && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pulseaudio-control togmute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id changevolume up @DEFAULT_SINK@ && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id changevolume down @DEFAULT_SINK@ && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id changevolume mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 #+end_src
 *** Player keys (playerctl)
