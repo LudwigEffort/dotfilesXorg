@@ -21,6 +21,7 @@
     progress_bar_frame_width = 1
     progress_bar_min_width = 150
     progress_bar_max_width = 400
+    highlight = "#b16286"
     indicate_hidden = yes
     shrink = no
     separator_height = 2
@@ -28,7 +29,7 @@
     horizontal_padding = 15
     text_icon_padding = 15
     frame_width = 2
-    frame_color = "#a89984"
+    frame_color = "#ebdbb2"
     corner_radius = 5
     separator_color = frame
     sort = yes
@@ -49,7 +50,7 @@
     icon_position = left
     min_icon_size = 0
     max_icon_size = 32
-    icon_path = /home/eric/.local/share/icons/dunst
+    icon_path = ~/.local/share/icons/fontawesome/
     sticky_history = yes
     history_length = 20
     always_run_script = true
@@ -66,18 +67,20 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#98971a"
+    background = "#3c3836"
     foreground = "#ebdbb2"
-    timeout = 20
+    timeout = 10
 
 [urgency_normal]
-    background = "#458588"
+    background = "#3c3836"
     foreground = "#ebdbb2"
-    timeout = 20
+    timeout = 10
+
+    #new_icon = ~/.local/share/icons/fontawesome/bell.svg
 
 [urgency_critical]
-    background = "#181825AA"
-    foreground = "#F38BA8"
-    frame_color = "#F38BA8"
-    timeout = -1
+    background = "#cc241d"
+    foreground = "#ebdbb2"
+    frame_color = "#ebdbb2"
+    timeout = 0
     format = "<b>%s</b>\n%b"
