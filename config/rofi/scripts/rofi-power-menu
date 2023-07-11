@@ -33,7 +33,7 @@ icons[switchuser]="\Uf0019"
 icons[logout]="\Uf08b"
 icons[suspend]="\Uf186"
 icons[hibernate]="\Uf0a0"
-icons[reboot]="\Uf2ea"
+icons[reboot]="\Uf0e2"
 icons[shutdown]="\Uf011"
 icons[cancel]="\Uf00d"
 
