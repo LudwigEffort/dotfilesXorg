@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# ls aliases
+alias ls='ls -xFX --color=auto'
+alias la='ls -axFX --color=auto'
+alias ll='ls -hlFX --color=auto'
+alias lla='ls -ahlFX --color=auto'
+
+# software aliases
+alias lf="lf-ueberzug"
+alias ips="ip -c addr"
+alias ns="nmcli -p connection"
