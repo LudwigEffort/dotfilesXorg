@@ -1,12 +1,40 @@
 #!/bin/sh
 
-# ls aliases
-alias ls='ls -xFX --color=auto'
-alias la='ls -axFX --color=auto'
-alias ll='ls -hlFX --color=auto'
-alias lla='ls -ahlFX --color=auto'
+##### Aliases
 
-# software aliases
-alias lf="lf-ueberzug"
-alias ips="ip -c addr"
-alias ns="nmcli -p connection"
+# Replace "ls" to "exa"
+alias ls='exa -F --color=always --icons --group-directories-first'
+alias la='exa -aF --color=always --icons --group-directories-first'
+alias ll='exa -lF --color=always --icons --group-directories-first'
+alias lla='exa -alF --color=always --icons --group-directories-first'
+alias lt='exa -alFT -I '.git' --color=always --icons --group-directories-first'
+
+# Copy
+alias cp='cp -i'
+alias cpd='cp -r'
+
+# Replace "cat" to "bat"
+alias cat='bat'
+
+# Move
+alias mv='mv -iv'
+
+# Remove
+alias rm='rm -vI --preserve-root'
+alias rmd='rm -r --preserve-root'
+
+# Pacman and Paru
+alias p='sudo pacman'                               # pacman shortcut
+alias pa='paru'                                     # paru shortcut
+alias pacsyu='sudo pacman -Syu'                     # update standard pkgs
+alias pacsyyu='sudo pacman -Syyu'                   # refresh pkglist & update standard pkgs
+alias parsya='paru -Sua'                            # update pkgs from AUR
+alias parsyu='paru -Syu'                            # update all pkgs
+alias unlock='sudo rm -i /var/lib/pacman/db.lck'    # remove pacman lock file
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'    # remove orphaned pkgs
+alias wpkgs='pacman -Qs'                            # search installed pkgs
+
+# Software
+alias lf='lf-ueberzug'
+alias ips='ip -c addr'
+alias ns='nmcli -p connection'
