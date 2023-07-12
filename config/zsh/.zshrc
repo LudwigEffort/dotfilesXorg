@@ -12,14 +12,14 @@
 ##### General Settings
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE="${XDG_CONFIG_HOME}/zsh/.histfile"
 HISTSIZE=10000
 SAVEHIST=10000
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/ludwig/.zshrc'
+zstyle :compinstall filename "${XDG_CONFIG_HOME}/zsh/.zshrc"
 
 autoload -Uz compinit
 compinit
