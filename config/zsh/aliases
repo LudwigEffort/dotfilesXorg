@@ -2,6 +2,10 @@
 
 ##### Aliases
 
+# Software
+alias emacs='emacsclient -t -a ""'
+alias lf='lf-ueberzug'
+
 # Replace "ls" to "exa"
 alias ls='exa -F --color=always --icons --group-directories-first'
 alias la='exa -aF --color=always --icons --group-directories-first'
@@ -26,15 +30,13 @@ alias rmd='rm -r --preserve-root'
 # Pacman and Paru
 alias p='sudo pacman'                               # pacman shortcut
 alias pa='paru'                                     # paru shortcut
-alias pacsyu='sudo pacman -Syu'                     # update standard pkgs
-alias pacsyyu='sudo pacman -Syyu'                   # refresh pkglist & update standard pkgs
-alias parsya='paru -Sua'                            # update pkgs from AUR
-alias parsyu='paru -Syu'                            # update all pkgs
+alias psyu='sudo pacman -Syu'                       # update standard pkgs
+alias psyyu='sudo pacman -Syyu'                     # refresh pkglist & update standard pkgs
+alias pasua='paru -Sua'                             # update pkgs from AUR
+alias pasyu='paru -Syu'                             # update all pkgs
 alias unlock='sudo rm -i /var/lib/pacman/db.lck'    # remove pacman lock file
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'    # remove orphaned pkgs
-alias wpkgs='pacman -Qs'                            # search installed pkgs
+alias pwhere='pacman -Qs'                           # search installed pkgs
 
-# Software
-alias lf='lf-ueberzug'
 alias ips='ip -c addr'
 alias ns='nmcli -p connection'
