@@ -3,19 +3,11 @@
 (use-package rainbow-mode
   :hook (emacs-lisp-mode text-mode lisp-mode org-mode prog-mode))
 
-(defun my-add-file-patterns-to-rainbow-mode ()
-  (interactive)
-  (dolist (pattern '("\\.rc\\'"
-                     "config\\'"
-                     "\\.rasi\\'"
-                     "\\.ini\\'"
-                     "\\.conf\\'"
-                     "\\.yml\\'"))
-    (add-to-list 'auto-mode-alist `(,pattern . rainbow-mode))))
+(add-hook 'after-change-major-mode-hook 'my-rainbow-mode-hook)
 
-(add-hook 'after-init-hook 'my-add-file-patterns-to-rainbow-mode)
-
-
+(defun my-rainbow-mode-hook ()
+    (when (string-match-p "\\(?:rc\\|\\.ini\\|config\\|\\.rasi\\|\\.conf\\|\\.yml\\)\\'" (buffer-name))
+    (rainbow-mode 1)))
 
 (map! :leader
       (:prefix ("DEL". "buffer")
@@ -32,10 +24,13 @@
 
 (setq doom-font (font-spec :family "Fira Code" :size 20)
       doom-variable-pitch-font (font-spec :family "Fira Code" :size 20)
-      doom-big-font (font-spec  :family "Fira Code" :size 24))
+      doom-big-font (font-spec :family "Fira Code" :size 25))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 
 (use-package all-the-icons :if (display-graphic-p))
 
