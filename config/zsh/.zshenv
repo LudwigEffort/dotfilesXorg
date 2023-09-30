@@ -52,7 +52,7 @@ export USR_SHARE="/usr/share"
 
 # Software Paths
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export GIT_CONFIG="$XDG_CONFIG_HOME/git"
+export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 
 ########## Cleaning up home folder ###########
 export HISTFILE="$HOME/bash/history"
