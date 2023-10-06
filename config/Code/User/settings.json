@@ -8,12 +8,13 @@
 
   //? Editor
   "editor.fontFamily": "Fira Code",
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
   "editor.guides.bracketPairs": true,
   "editor.guides.bracketPairsHorizontal": true,
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeLens": true,
   "editor.lineNumbers": "relative",
@@ -85,15 +86,19 @@
   //? C#
   "[csharp]": {
     "editor.codeLens": false,
-    "editor.defaultFormatter": "ms-dotnettools.csharp"
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
   },
   "csharpextensions.useFileScopedNamespace": true,
   "roslynator.autoUpdateOmnisharpJson": true,
 
   //? C++
+  /*
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
+  */
 
   //? HTML
   "[html]": {
@@ -124,5 +129,110 @@
 
   //? Live Server
   "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.AdvanceCustomBrowserCmdLine": "firefox-developer-edition"
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "firefox-developer-edition",
+  "files.autoSave": "onFocusChange",
+
+  //? Better Comments
+  "better-comments.multilineComments": true,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#b70131",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "??",
+      "color": "#52e2fe",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#52e2fe",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#048205",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "bug",
+      "color": "#ff0613",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "fixme",
+      "color": "#ff5515",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#46353f",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "////",
+      "color": "#46353f",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#ff6b04",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": true
+    },
+    {
+      "tag": "done",
+      "color": "#739aaf",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "do",
+      "color": "#fffb03",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ]
 }
